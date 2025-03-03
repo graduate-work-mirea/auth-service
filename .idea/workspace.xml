@@ -5,20 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5ad8ea2-e873-4c46-949f-1b64b79b4087" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/internal/repository/postgres.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/postgres.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/handlers/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/handlers/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/user_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/user_repository.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTTP Request" />
+        <option value="HTTP Public Environment File" />
+      </list>
+    </option>
+  </component>
   <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../../Program Files/Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
 }]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2toeZP6lwqLuV0y0eejUs17pa5I" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -26,6 +41,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "HTTP Request.rest | Вход с верными учетными данными.executor": "Run",
+    "HTTP Request.rest | Вход с неверными учетными данными.executor": "Run",
+    "HTTP Request.rest | Дополнительно: Тест на валидацию входных данных при входе.executor": "Run",
+    "HTTP Request.rest | Попытка регистрации с уже существующим email (должна завершиться ошибкой).executor": "Run",
+    "HTTP Request.rest | Регистрация нового пользователя.executor": "Run",
+    "HTTP Request.rest | Регистрация с некорректными данными (пустой пароль).executor": "Run",
+    "HTTP Request.rest | Тест защищенного эндпоинта (если таковой имеется).executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
@@ -40,6 +62,32 @@
     "nodejs_package_manager_path": "npm"
   }
 }]]></component>
+  <component name="RunManager" selected="HTTP Request.rest | Дополнительно: Тест на валидацию входных данных при входе">
+    <configuration name="rest | Вход с неверными учетными данными" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/rest.http" executionIdentifier="Вход с неверными учетными данными" index="5" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="rest | Регистрация с некорректными данными (пустой пароль)" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/rest.http" executionIdentifier="Регистрация с некорректными данными (пустой пароль)" index="3" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="rest | Тест защищенного эндпоинта (если таковой имеется)" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/rest.http" executionIdentifier="Тест защищенного эндпоинта (если таковой имеется)" index="6" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="rest | Дополнительно: Тест на валидацию входных данных при входе" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/rest.http" executionIdentifier="Дополнительно: Тест на валидацию входных данных при входе" index="10" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="rest | Вход с верными учетными данными" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/rest.http" executionIdentifier="Вход с верными учетными данными" index="4" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.rest | Дополнительно: Тест на валидацию входных данных при входе" />
+        <item itemvalue="HTTP Request.rest | Тест защищенного эндпоинта (если таковой имеется)" />
+        <item itemvalue="HTTP Request.rest | Вход с неверными учетными данными" />
+        <item itemvalue="HTTP Request.rest | Вход с верными учетными данными" />
+        <item itemvalue="HTTP Request.rest | Регистрация с некорректными данными (пустой пароль)" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

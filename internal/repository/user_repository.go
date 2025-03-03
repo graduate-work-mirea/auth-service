@@ -1,7 +1,6 @@
 package repository
 
 import (
-	"errors"
 	"log"
 
 	"github.com/diplom/auth-service/internal/models"

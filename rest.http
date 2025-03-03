@@ -1,0 +1,111 @@
+### Переменные окружения
+@baseUrl = http://localhost:8080
+@grpcUrl = localhost:50051
+@email = test@example.com
+@password = secret123
+@invalidPassword = неверныйпароль
+
+### Регистрация нового пользователя
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "email": "{{email}}",
+  "password": "{{password}}"
+}
+
+> {%
+    // Проверяем успешность регистрации
+    client.test("Регистрация - Код статуса 200", function() {
+        client.assert(response.status === 200, "Код ответа не 200");
+    });
+    client.test("Регистрация - Ответ содержит user_id", function() {
+        client.assert(response.body.user_id !== undefined, "В ответе нет user_id");
+        client.global.set("userId", response.body.user_id);
+    });
+%}
+
+### Попытка регистрации с уже существующим email (должна завершиться ошибкой)
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "email": "{{email}}",
+  "password": "{{password}}"
+}
+
+> {%
+    // Проверяем, что нельзя зарегистрироваться дважды с одним email
+    client.test("Регистрация дубликата - Должна завершиться ошибкой", function() {
+        client.assert(response.status === 400 || response.status === 409,
+            "Повторная регистрация должна возвращать 400 или 409");
+    });
+%}
+
+### Регистрация с некорректными данными (пустой пароль)
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "email": "test2@example.com",
+  "password": ""
+}
+
+> {%
+    // Проверяем валидацию данных при регистрации
+    client.test("Некорректная регистрация - Должна завершиться ошибкой", function() {
+        client.assert(response.status === 400, "Некорректные данные должны возвращать 400");
+    });
+%}
+
+### Вход с верными учетными данными
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "{{email}}",
+  "password": "{{password}}"
+}
+
+> {%
+    // Проверяем успешность входа
+    client.test("Вход - Код статуса 200", function() {
+        client.assert(response.status === 200, "Код ответа не 200");
+    });
+    client.test("Вход - Ответ содержит access_token", function() {
+        client.assert(response.body.access_token !== undefined, "В ответе нет access_token");
+        client.global.set("accessToken", response.body.access_token);
+    });
+%}
+
+### Вход с неверными учетными данными
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "{{email}}",
+  "password": "{{invalidPassword}}"
+}
+
+> {%
+    // Проверяем, что нельзя войти с неверным паролем
+    client.test("Неверный вход - Должен завершиться ошибкой", function() {
+        client.assert(response.status === 401, "Неверный вход должен возвращать 401");
+    });
+%}
+
+### Дополнительно: Тест на валидацию входных данных при входе
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "не-email",
+  "password": "{{password}}"
+}
+
+> {%
+    // Проверяем валидацию формата email
+    client.test("Вход с неверным email - Должен завершиться ошибкой", function() {
+        client.assert(response.status === 400, "Неверный email должен возвращать 400");
+    });
+%}

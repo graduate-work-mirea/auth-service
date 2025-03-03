@@ -3,7 +3,6 @@ package handlers
 import (
 	"log"
 	"net/http"
-	"strings"
 
 	"github.com/diplom/auth-service/internal/models"
 	"github.com/diplom/auth-service/internal/repository"
