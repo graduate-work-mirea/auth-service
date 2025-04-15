@@ -17,12 +17,46 @@ type TokenClaims struct {
 	jwt.RegisteredClaims
 }
 
-// GenerateToken generates a new JWT token for a user
+// TokenPair holds both access and refresh tokens
+type TokenPair struct {
+	AccessToken  string `json:"access_token"`
+	RefreshToken string `json:"refresh_token"`
+	ExpiresAt    int64  `json:"expires_at"`
+}
+
+// GenerateTokenPair generates both access and refresh tokens
+func GenerateTokenPair(userID uuid.UUID, role string) (TokenPair, error) {
+	// Generate access token
+	accessToken, accessExpiresAt, err := generateAccessToken(userID, role)
+	if err != nil {
+		return TokenPair{}, err
+	}
+
+	// Generate refresh token
+	refreshToken, err := generateRefreshToken(userID, role)
+	if err != nil {
+		return TokenPair{}, err
+	}
+
+	return TokenPair{
+		AccessToken:  accessToken,
+		RefreshToken: refreshToken,
+		ExpiresAt:    accessExpiresAt.Unix(),
+	}, nil
+}
+
+// GenerateToken is kept for backward compatibility
 func GenerateToken(userID uuid.UUID, role string) (string, error) {
+	token, _, err := generateAccessToken(userID, role)
+	return token, err
+}
+
+// generateAccessToken generates a new JWT access token for a user
+func generateAccessToken(userID uuid.UUID, role string) (string, time.Time, error) {
 	// Get JWT secret from environment
 	jwtSecret := os.Getenv("JWT_SECRET")
 	if jwtSecret == "" {
-		return "", errors.New("JWT_SECRET environment variable not set")
+		return "", time.Time{}, errors.New("JWT_SECRET environment variable not set")
 	}
 
 	// Set expiration time (1 hour)
@@ -46,6 +80,45 @@ func GenerateToken(userID uuid.UUID, role string) (string, error) {
 	tokenString, err := token.SignedString([]byte(jwtSecret))
 	if err != nil {
 		log.Printf("Error signing token: %v", err)
+		return "", time.Time{}, err
+	}
+
+	return tokenString, expirationTime, nil
+}
+
+// generateRefreshToken generates a new JWT refresh token for a user
+func generateRefreshToken(userID uuid.UUID, role string) (string, error) {
+	// Get refresh token secret from environment
+	refreshSecret := os.Getenv("REFRESH_TOKEN_SECRET")
+	if refreshSecret == "" {
+		// Fallback to JWT_SECRET if REFRESH_TOKEN_SECRET is not set
+		refreshSecret = os.Getenv("JWT_SECRET")
+		if refreshSecret == "" {
+			return "", errors.New("neither REFRESH_TOKEN_SECRET nor JWT_SECRET environment variables are set")
+		}
+	}
+
+	// Set expiration time (30 days)
+	expirationTime := time.Now().Add(30 * 24 * time.Hour)
+
+	// Create the JWT claims
+	claims := &TokenClaims{
+		UserID: userID.String(),
+		Role:   role,
+		RegisteredClaims: jwt.RegisteredClaims{
+			ExpiresAt: jwt.NewNumericDate(expirationTime),
+			IssuedAt:  jwt.NewNumericDate(time.Now()),
+			Subject:   userID.String(),
+		},
+	}
+
+	// Create token with claims
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+
+	// Sign the token with the secret key
+	tokenString, err := token.SignedString([]byte(refreshSecret))
+	if err != nil {
+		log.Printf("Error signing refresh token: %v", err)
 		return "", err
 	}
 

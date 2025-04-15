@@ -37,6 +37,20 @@ func (r *UserRepository) CreateUser(email, passwordHash string) (uuid.UUID, erro
 	return userID, nil
 }
 
+// GetUserByID retrieves a user by ID
+func (r *UserRepository) GetUserByID(id uuid.UUID) (*models.User, error) {
+	var user models.User
+	query := `SELECT id, email, password_hash, role, created_at FROM users WHERE id = $1`
+
+	err := r.db.Get(&user, query, id)
+	if err != nil {
+		log.Printf("Error getting user by ID: %v", err)
+		return nil, err
+	}
+
+	return &user, nil
+}
+
 // GetUserByEmail retrieves a user by email
 func (r *UserRepository) GetUserByEmail(email string) (*models.User, error) {
 	var user models.User

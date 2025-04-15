@@ -3,6 +3,7 @@ package handlers
 import (
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/diplom/auth-service/internal/models"
 	"github.com/diplom/auth-service/internal/repository"
@@ -61,8 +62,32 @@ func (h *AuthHandler) RegisterHandler(c *gin.Context) {
 		return
 	}
 
-	// Return success response
-	c.JSON(http.StatusCreated, models.UserRegisterResponse{UserID: userID.String()})
+	// Get full user details
+	user, err := h.userRepo.GetUserByID(userID)
+	if err != nil {
+		log.Printf("Error fetching created user: %v", err)
+		c.JSON(http.StatusInternalServerError, models.ErrorResponse{Error: "User created but failed to fetch details"})
+		return
+	}
+
+	// Generate tokens
+	tokenPair, err := utils.GenerateTokenPair(user.ID, user.Role)
+	if err != nil {
+		log.Printf("Error generating tokens: %v", err)
+		c.JSON(http.StatusInternalServerError, models.ErrorResponse{Error: "Failed to generate authentication tokens"})
+		return
+	}
+
+	// Return success response with enhanced data
+	c.JSON(http.StatusCreated, models.UserRegisterResponse{
+		UserID:       user.ID.String(),
+		Email:        user.Email,
+		Role:         user.Role,
+		AccessToken:  tokenPair.AccessToken,
+		RefreshToken: tokenPair.RefreshToken,
+		ExpiresAt:    tokenPair.ExpiresAt,
+		CreatedAt:    user.CreatedAt,
+	})
 }
 
 // LoginHandler handles user login
@@ -92,16 +117,27 @@ func (h *AuthHandler) LoginHandler(c *gin.Context) {
 		return
 	}
 
-	// Generate token
-	token, err := utils.GenerateToken(user.ID, user.Role)
+	// Generate tokens
+	tokenPair, err := utils.GenerateTokenPair(user.ID, user.Role)
 	if err != nil {
-		log.Printf("Error generating token: %v", err)
-		c.JSON(http.StatusInternalServerError, models.ErrorResponse{Error: "Failed to generate token"})
+		log.Printf("Error generating tokens: %v", err)
+		c.JSON(http.StatusInternalServerError, models.ErrorResponse{Error: "Failed to generate authentication tokens"})
 		return
 	}
 
-	// Return success response
-	c.JSON(http.StatusOK, models.UserLoginResponse{AccessToken: token})
+	// Record current time as last login
+	lastLoginAt := time.Now()
+
+	// Return success response with enhanced data
+	c.JSON(http.StatusOK, models.UserLoginResponse{
+		UserID:       user.ID.String(),
+		Email:        user.Email,
+		Role:         user.Role,
+		AccessToken:  tokenPair.AccessToken,
+		RefreshToken: tokenPair.RefreshToken,
+		ExpiresAt:    tokenPair.ExpiresAt,
+		LastLoginAt:  lastLoginAt,
+	})
 }
 
 // SetupRoutes sets up the authentication routes
