@@ -1,0 +1,223 @@
+openapi: 3.0.0
+info:
+  title: Authentication Service API
+  description: API для сервиса аутентификации
+  version: 1.0.0
+  contact:
+    name: API Support
+    email: support@example.com
+
+servers:
+  - url: http://localhost:8080
+    description: Локальный сервер разработки
+  - url: https://api.example.com
+    description: Продакшн сервер
+
+tags:
+  - name: Authentication
+    description: Операции аутентификации и авторизации
+
+paths:
+  /auth/register:
+    post:
+      tags:
+        - Authentication
+      summary: Регистрация нового пользователя
+      description: Создаёт нового пользователя в системе и возвращает его данные вместе с токенами
+      operationId: registerUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegisterRequest'
+      responses:
+        '201':
+          description: Пользователь успешно зарегистрирован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRegisterResponse'
+        '400':
+          description: Некорректный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Пользователь с таким email уже существует
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /auth/login:
+    post:
+      tags:
+        - Authentication
+      summary: Вход пользователя
+      description: Аутентифицирует пользователя и возвращает его данные вместе с токенами
+      operationId: loginUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLoginRequest'
+      responses:
+        '200':
+          description: Успешный вход
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserLoginResponse'
+        '400':
+          description: Некорректный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Неверный email или пароль
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    UserRegisterRequest:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+          description: Email пользователя
+          example: user@example.com
+        password:
+          type: string
+          format: password
+          minLength: 6
+          description: Пароль пользователя
+          example: password123
+
+    UserRegisterResponse:
+      type: object
+      properties:
+        user_id:
+          type: string
+          format: uuid
+          description: Уникальный идентификатор пользователя
+          example: 123e4567-e89b-12d3-a456-426614174000
+        email:
+          type: string
+          format: email
+          description: Email пользователя
+          example: user@example.com
+        role:
+          type: string
+          description: Роль пользователя в системе
+          example: user
+        access_token:
+          type: string
+          description: JWT токен для аутентификации
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+        refresh_token:
+          type: string
+          description: Токен для обновления access_token
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+        expires_at:
+          type: integer
+          format: int64
+          description: Время истечения токена в формате Unix timestamp
+          example: 1634567890
+        created_at:
+          type: string
+          format: date-time
+          description: Время создания аккаунта
+          example: 2023-01-01T12:00:00Z
+
+    UserLoginRequest:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+          description: Email пользователя
+          example: user@example.com
+        password:
+          type: string
+          format: password
+          description: Пароль пользователя
+          example: password123
+
+    UserLoginResponse:
+      type: object
+      properties:
+        user_id:
+          type: string
+          format: uuid
+          description: Уникальный идентификатор пользователя
+          example: 123e4567-e89b-12d3-a456-426614174000
+        email:
+          type: string
+          format: email
+          description: Email пользователя
+          example: user@example.com
+        role:
+          type: string
+          description: Роль пользователя в системе
+          example: user
+        access_token:
+          type: string
+          description: JWT токен для аутентификации
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+        refresh_token:
+          type: string
+          description: Токен для обновления access_token
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+        expires_at:
+          type: integer
+          format: int64
+          description: Время истечения токена в формате Unix timestamp
+          example: 1634567890
+        last_login_at:
+          type: string
+          format: date-time
+          description: Время последнего входа
+          example: 2023-01-01T15:30:00Z
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Сообщение об ошибке
+          example: Неверный email или пароль
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: [] 

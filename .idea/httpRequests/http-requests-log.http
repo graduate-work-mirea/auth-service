@@ -1,0 +1,186 @@
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+Content-Length: 60
+User-Agent: IntelliJ HTTP Client/GoLand 2024.3.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test@example.com",
+  "password": "secret123"
+}
+
+<> 2025-04-15T233515.200.json
+
+###
+
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+Content-Length: 60
+User-Agent: IntelliJ HTTP Client/GoLand 2024.3.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test@example.com",
+  "password": "secret123"
+}
+
+<> 2025-04-15T233507.409.json
+
+###
+
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+Content-Length: 60
+User-Agent: IntelliJ HTTP Client/GoLand 2024.3.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test@example.com",
+  "password": "secret123"
+}
+
+<> 2025-04-15T232934.200.json
+
+###
+
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+Content-Length: 60
+User-Agent: IntelliJ HTTP Client/GoLand 2024.3.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test@example.com",
+  "password": "secret123"
+}
+
+<> 2025-04-15T232915.201.json
+
+###
+
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+Content-Length: 60
+User-Agent: IntelliJ HTTP Client/GoLand 2024.3.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test@example.com",
+  "password": "secret123"
+}
+
+<> 2025-03-04T212759.200.json
+
+###
+
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+Content-Length: 54
+User-Agent: IntelliJ HTTP Client/GoLand 2024.3.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "не-email",
+  "password": "secret123"
+}
+
+<> 2025-03-03T211714.400.json
+
+###
+
+GET http://localhost:8080/protected
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjdkZWQ3YTAtZTdhYy00NzVkLWI2NGYtNTZjZTNmYWU3NmQ4Iiwicm9sZSI6InVzZXIiLCJzdWIiOiJiN2RlZDdhMC1lN2FjLTQ3NWQtYjY0Zi01NmNlM2ZhZTc2ZDgiLCJleHAiOjE3NDEwMjkzOTQsImlhdCI6MTc0MTAyNTc5NH0.5mwQAKL-5KCpjA28R0qe7jCHtF4pU0oVILZRcosYoPU
+User-Agent: IntelliJ HTTP Client/GoLand 2024.3.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2025-03-03T211653.404.txt
+
+###
+
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+Content-Length: 79
+User-Agent: IntelliJ HTTP Client/GoLand 2024.3.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test@example.com",
+  "password": "неверныйпароль"
+}
+
+<> 2025-03-03T211643.401.json
+
+###
+
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+Content-Length: 60
+User-Agent: IntelliJ HTTP Client/GoLand 2024.3.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test@example.com",
+  "password": "secret123"
+}
+
+<> 2025-03-03T211634.200.json
+
+###
+
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+Content-Length: 52
+User-Agent: IntelliJ HTTP Client/GoLand 2024.3.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test2@example.com",
+  "password": ""
+}
+
+<> 2025-03-03T211628.400.json
+
+###
+
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+Content-Length: 60
+User-Agent: IntelliJ HTTP Client/GoLand 2024.3.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test@example.com",
+  "password": "secret123"
+}
+
+<> 2025-03-03T211617.409.json
+
+###
+
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+Content-Length: 60
+User-Agent: IntelliJ HTTP Client/GoLand 2024.3.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test@example.com",
+  "password": "secret123"
+}
+
+<> 2025-03-03T211559.201.json
+
+###
+

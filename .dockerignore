@@ -1,0 +1,33 @@
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# IDE
+.idea
+.vscode
+
+# Build artifacts
+tmp/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Testing
+*.test
+*.tmp
+
+# Dependencies
+vendor/
+
+# Others
+*.md
+!README.md
+.env
+*.log

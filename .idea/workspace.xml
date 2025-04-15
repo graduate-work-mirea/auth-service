@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e5ad8ea2-e873-4c46-949f-1b64b79b4087" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/handlers/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/handlers/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/models/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/models/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/user_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/user_repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/utils/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/utils/jwt.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTTP Request" />
+        <option value="HTTP Public Environment File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../../Program Files/Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2toeZP6lwqLuV0y0eejUs17pa5I" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;HTTP Request.rest | Вход с верными учетными данными.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.rest | Вход с неверными учетными данными.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.rest | Дополнительно: Тест на валидацию входных данных при входе.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.rest | Попытка регистрации с уже существующим email (должна завершиться ошибкой).executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.rest | Регистрация нового пользователя.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.rest | Регистрация с некорректными данными (пустой пароль).executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.rest | Тест защищенного эндпоинта (если таковой имеется).executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dasha/Documents/diplom/api-gateway&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  }
+}</component>
+  <component name="RunManager" selected="HTTP Request.rest | Вход с верными учетными данными">
+    <configuration name="rest | Вход с верными учетными данными" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/rest.http" executionIdentifier="Вход с верными учетными данными" index="4" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="rest | Регистрация с некорректными данными (пустой пароль)" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/rest.http" executionIdentifier="Регистрация с некорректными данными (пустой пароль)" index="3" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="rest | Вход с верными учетными данными" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/rest.http" executionIdentifier="Вход с верными учетными данными" index="4" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="rest | Вход с верными учетными данными" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/rest.http" executionIdentifier="Вход с верными учетными данными" index="4" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="rest | Тест защищенного эндпоинта (если таковой имеется)" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/rest.http" executionIdentifier="Тест защищенного эндпоинта (если таковой имеется)" index="6" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="rest | Дополнительно: Тест на валидацию входных данных при входе" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/rest.http" executionIdentifier="Дополнительно: Тест на валидацию входных данных при входе" index="10" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="rest | Регистрация нового пользователя" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/rest.http" executionIdentifier="Регистрация нового пользователя" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.rest | Вход с верными учетными данными" />
+        <item itemvalue="HTTP Request.rest | Регистрация нового пользователя" />
+        <item itemvalue="HTTP Request.rest | Дополнительно: Тест на валидацию входных данных при входе" />
+        <item itemvalue="HTTP Request.rest | Тест защищенного эндпоинта (если таковой имеется)" />
+        <item itemvalue="HTTP Request.rest | Регистрация с некорректными данными (пустой пароль)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-gosdk-d297c17c1fbd-57c114c3cede-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-243.24978.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-GO-243.24978.59" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>
